@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body h1 {
+  /*  	background: linear-gradient(135deg,#0b486b, #f56217); */
+  color: #fff;
+  font-family: Pacifico;
+  padding: 7px;
+  text-align: center;
+}
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  /* 	linear-gradient(to right, #56ccf2, #2f80ed) 
+linear-gradient(to right, #f12711, #f5af19)
+background: linear-gradient(to right, #0b486b, #f56217);*/
+  padding: 100px;
+}
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: #fff;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 20px;
+}
+.todo-app h2 {
+  color: #fd1d1d;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.todo-app h2 img {
+  width: 30px;
+  margin-left: 10px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+input {
+  flex: 1;
+  height: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.row > button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  border-radius: 30px;
+  background: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+ul li {
+  list-style: none;
+  position: relative;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(../images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
+}
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  background-image: url(../images/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  color: #ff5945;
+  width: 30px;
+  height: 30px;
+  font-size: 28px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background: #edeef0;
+  cursor: pointer;
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+  .container,
+  .row,
+  input,
+  h1 {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}

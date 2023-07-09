@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notes</title>
+	<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="container">
+		<h1> ~ ToDo ~ </h1>
+		<div class="todo-app">
+			<h2>Items:
+				<img src="{% static 'images/plan.png' %}">
+			</h2>
+			<form action="{% url 'addTask' %}" method="POST">
+				{% csrf_token %}
+				<div class="row">
+					<input type="text" name="task" id="input-box" placeholder="Add a task">
+					<button type="submit">Add</button>
+				</div>
+			</form>
+			<ul id="list-container">
+				{% for task in tasks %}
+				<li> {{ task.task }} <button type="submit"
+						onclick="location.href='{% url 'deleteTask' pk=task.id %}'"><span>&#xD7;</span></button>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="{% static 'javascript/script.js' %}"></script>
+</body>
+
+</html>
